@@ -1,5 +1,6 @@
 package com.johanastrom.labb1johanastrom;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Labb1JohanAstrom {
@@ -31,8 +32,7 @@ public class Labb1JohanAstrom {
                     break;
 
                 case "R":
-                    for (int i = 0; i < score.length; i++)
-                        score[i] = 0;
+                    Arrays.fill(score, 0);
                     break;
 
                 case "X":
@@ -49,7 +49,7 @@ public class Labb1JohanAstrom {
     }
 
     //Metod som körs när programmet startas. Användaren gör sina val.
-    static void intro(){
+    static void intro() {
         System.out.println("Välkommen till tärningsspelet! Välj antal spelare: ");
         int noOfPlayers = inputInt();
 
@@ -137,9 +137,7 @@ public class Labb1JohanAstrom {
             System.out.println("***   ***   ***   ***\n");
             System.out.println("Spelet blev oavgjort!");
             System.out.println("\n***   ***   ***   ***");
-        }
-
-        else {
+        } else {
             System.out.println("***   ***   ***   ***\n");
             System.out.println("Vinnaren är: " + players[indexOfLargestElement(score)] + "!");
             System.out.println("\n***   ***   ***   ***");
@@ -147,7 +145,7 @@ public class Labb1JohanAstrom {
         System.out.println("\nTack för att du spelade!");
     }
 
-    //Metod för inmatning av heltal (rensar cachen med en readLine-metod).
+    //Metod för inmatning av heltal (rensar cachen med en nextLine-metod).
     static int inputInt() {
         int number = scan1.nextInt();
         scan1.nextLine();
@@ -155,17 +153,6 @@ public class Labb1JohanAstrom {
 
     }
 
-    //Metod för att hitta största elementet i en array.
-    static int findLargestElement(int[] array) {
-        int max = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            if (max < array[i])
-                max = array[i];
-        }
-
-        return max;
-    }
 
     //Metod för att hitta indextalet för det största elementet i en array.
     static int indexOfLargestElement(int[] array) {
@@ -179,7 +166,7 @@ public class Labb1JohanAstrom {
     }
 
     /*Metod för att undersöka ifall det största elementet i en array förekommer flera gånger
-    (och omgången således blir oavgjord).
+    (och resultatet således blir "oavgjort").
      */
     static boolean checkDuplicatesOfLargestElement(int[] array) {
         int largest = 0;
